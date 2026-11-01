@@ -39,107 +39,6 @@ ul.task-list{list-style: none;}
 
 
 
-<style type="text/css">
-code {
-white-space: pre;
-}
-.sourceCode {
-overflow: visible;
-}
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-color: #aaaaaa;
-}
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } 
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.at { color: #7d9029; } 
-code span.bn { color: #40a070; } 
-code span.bu { color: #008000; } 
-code span.cf { color: #007020; font-weight: bold; } 
-code span.ch { color: #4070a0; } 
-code span.cn { color: #880000; } 
-code span.co { color: #60a0b0; font-style: italic; } 
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.do { color: #ba2121; font-style: italic; } 
-code span.dt { color: #902000; } 
-code span.dv { color: #40a070; } 
-code span.er { color: #ff0000; font-weight: bold; } 
-code span.ex { } 
-code span.fl { color: #40a070; } 
-code span.fu { color: #06287e; } 
-code span.im { color: #008000; font-weight: bold; } 
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.kw { color: #007020; font-weight: bold; } 
-code span.op { color: #666666; } 
-code span.ot { color: #007020; } 
-code span.pp { color: #bc7a00; } 
-code span.sc { color: #4070a0; } 
-code span.ss { color: #bb6688; } 
-code span.st { color: #4070a0; } 
-code span.va { color: #19177c; } 
-code span.vs { color: #4070a0; } 
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -340,8 +239,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(icdpicr2)</span></code></pre></div>
-<p><em>Version 250706</em></p>
+<p><em>Version 261031</em></p>
 <div id="background" class="section level3">
 <h3>Background</h3>
 <p>ICDPIC – International Classification of Diseases Programs for Injury
@@ -350,16 +248,18 @@ Modification (ICD-9-CM) diagnosis codes and Stata statistical software
 (Statacorp, College Station, Texas). After the introduction of ICD-10-CM
 to US hospitals in 2015, an update to accommodate this change was
 developed using R statistical software (R Project, Vienna, Austria). The
-context for ICDPIC and the R package “icdpicr”, along with a general
-history of injury severity scoring, has been presented in a previous
-publication.[1]</p>
+context for ICDPIC and the R package “icdpicr”, a general history of
+injury severity scoring, and a detailed description of the latest
+revision are presented in a recent publication.[1]</p>
 <p>Initial development of the ICDPIC Stata programs occurred as part of
 research projects funded by the National Center for Injury Prevention
 and Control through the Harvard Injury Control Research Center (CDC
 R49/CCR 115279) and by the Maine Medical Center (MMC) Research Strategic
 Plan. The translation of ICDPIC to R was initially supported by funding
 from the MMC Division of Trauma and Surgical Critical Care and MMC
-Center for Outcomes Research and Evaluation. The authors are grateful
+Center for Outcomes Research and Evaluation. The Maine Health Department
+of Surgery and Research Institute also contributed towards the
+publication costs for the article cited above. The author is grateful
 for this support.</p>
 <p>The R package “icdpicr2” was developed using the American College of
 Surgeons (ACS) Trauma Quality Program (TQP) Participant Use File (PUF)
@@ -376,21 +276,22 @@ responsible for any claims arising from works based on the original
 data. Content reproduced from the NIS does not constitute the findings,
 policies, or recommendations of the U.S. Government, the U.S. Department
 of Health, or AHRQ.</p>
-<p>Version 0 of “icdpicr” was provided on github.com, and Version 1 was
-added to the Comprehensive R Archive Network (CRAN) in January 2021.
-This transition responded to issues raised by Sebastião and
-colleagues[2], and attempted to address the concerns of Airiksinen and
-colleagues[3] that methods developed for the ICD-10-CM modification used
+<p>Version 0 of “icdpicr” was provided on github.com,[2] and Version 1
+was added to the Comprehensive R Archive Network (CRAN) in January
+2021.[3] This transition responded to issues raised by Sebastião and
+colleagues[4], and attempted to address the concerns of Airiksinen and
+colleagues[5] that methods developed for the ICD-10-CM modification used
 in the United States did not work well for other countries. An
-independent evaluation of “icdpicr” Version 1 by Wan and colleagues[4]
-has found that it works quite well for ICD-10-CM data, but studies from
-other countries have still found it less satisfactory.[5,6] Eskesen and
-colleagues[6] have pointed out that it does not even include all valid
-ICD-10 diagnoses published by the World Health Organization (WHO).</p>
+independent evaluation of “icdpicr” Version 1 by Wan and colleagues[6]
+found that it worked quite well for ICD-10-CM data, but studies from
+other countries still found it less satisfactory.[7,8] Eskesen and
+colleagues[8] pointed out that it does not even include all valid ICD-10
+diagnoses published by the World Health Organization (WHO).</p>
 <p>Version 2 of “icdpicr”, named “icdpicr2”, is a further update in
 response to these studies and numerous other inquiries and suggestions.
 Because of copyright restrictions, it only attempts to approximate the
-original version of the Abbreviated Injury Score (AIS).[7]</p>
+Abbreviated Injury Score (AIS) as originally defined in the public
+domain.[9]</p>
 </div>
 <div id="the-most-important-changes-from-version-1-to-version-2-are-as-follows" class="section level3">
 <h3>The most important changes from Version 1 to Version 2 are as
@@ -422,18 +323,18 @@ codes) and AIS values are assigned to these codes using a weighted
 average of similar codes. Where possible, ICD-10 injury codes published
 by the WHO now have AIS assigned directly based upon the data gathered
 from seven different countries as part of an International Collaborative
-Effort on Injury Statistics.[8]</p></li>
+Effort on Injury Statistics.[10]</p></li>
 <li><p>As before, Version 2 (“icdpicr2”) reports Maximum AIS for each
-body region and overall, Injury Severity Score (ISS),[9] and “New Injury
-Severity Score”,[10] and now reports the mortality predictions both from
-TQP and from NIS for each individual.</p></li>
+body region and overall, Injury Severity Score (ISS),[11] and “New
+Injury Severity Score”,[12] and now reports the mortality predictions
+both from TQP and from NIS for each individual.</p></li>
 <li><p>Version 2 (“icdpicr2”) reports mechanism and intent categories
-following the most recent CDC publication.[11] It adds the CDC framework
-for body area and nature of injury,[12] and calculates an approximate
+following the most recent CDC publication.[13] It adds the CDC framework
+for body area and nature of injury,[14] and calculates an approximate
 survival probability based on the empirical survival for each cell of
-the framework.[13] It computes two versions (“multiplicative injury” and
+the framework.[15] It computes two versions (“multiplicative injury” and
 “worst injury”) of an “ICD-based Injury Severity Score” (ICISS) based on
-international data.[8,14] It also computes similar versions of ICISS
+international data.[10,16] It also computes similar versions of ICISS
 based on TQP and NIS.</p></li>
 <li><p>Version 2 (“icdpicr2”) has also been modified in several ways so
 that it will run faster than previous versions, mostly by using more
@@ -463,12 +364,12 @@ regression results in an independent estimate of effect (log odds ratio)
 for each diagnosis code. These are tabulated and can be combined with
 the estimated model intercept to estimate the probability of mortality
 for individual subjects. Body regions as defined for the original ISS
-[8] are determined for each ICD-10-CM code.</p></li>
+[10] are determined for each ICD-10-CM code.</p></li>
 <li><p><strong>icd10aisC</strong> – Reads in the tabulated effect
 estimates for each diagnosis code produced by icd10aisB and determines
 the largest effect estimate in each ISS body region for each subject,
 which will subsequently be stratified into Abbreviated Injury Scores
-(AIS) [7] and used to estimate ISS.[8] For each reference dataset,
+(AIS) [9] and used to estimate ISS.[11] For each reference dataset,
 icd10aisC initializes cutpoints categorizing the largest effect estimate
 for each body region into an AIS score of 1, 2, 3, 4, or 5. The program
 then uses an adaptive algorithm that randomly varies the cutpoints to
@@ -492,32 +393,33 @@ codes that specify whether an injury was right-sided, left-sided, or
 unspecified with respect to laterality.</p></li>
 <li><p>Assigns an AIS score to truncated ICD-10-CM codes (3-6 digits
 long) as a weighted average of the corresponding 7-digit ICD-10-CM
-codes. This includes most basic ICD-10 codes.</p></li>
+codes. This includes most of the 4-digit ICD-10 codes published by the
+WHO.</p></li>
 <li><p>Assigns an AIS score to ICD-10 injury codes published by the WHO,
 using a modification of the data published by Gedeborg and
-colleagues.[8] When available, these AIS scores replace those determined
-in the step above. Creates a table of all valid ICD-10 diagnosis codes
-with associated body region and AIS in order to calculate ISS; this
-table also includes the direct effects from regression. Creates another
-table with “Diagnosis-specific Survival Probabilities” (DSP) for 4-digit
-ICD-10 codes, either obtained directly from the data published by
-Gedeborg and colleagues [8] or indirectly by assignment of DSP to a
-4-digit truncation of longer diagnosis codes; these can be used to
-calculate several versions of the “ICD-based Injury Severity Score”
-(ICISS).[8,14]</p></li>
+colleagues.[10] When available, these AIS scores replace those
+determined in the step above. Creates a table of all valid ICD-10
+diagnosis codes with associated body region and AIS in order to
+calculate ISS; this table also includes the direct effects from
+regression. Creates another table with “Diagnosis-specific Survival
+Probabilities” (DSP) for 4-digit ICD-10 codes, either obtained directly
+from the data published by Gedeborg and colleagues [10] or indirectly by
+assignment of DSP to a 4-digit truncation of longer diagnosis codes;
+these can be used to calculate several versions of the “ICD-based Injury
+Severity Score” (ICISS).[10,16]</p></li>
 </ol></li>
 <li><p><strong>icd10aisE</strong> (New in Version 2) – Produces a table
 of injury mechanisms and intents based upon codes starting with T, V, W,
-X, or Y in ICD-10 data.[11] Produces a table corresponding to the
-“Framework for Presenting Injury Data” developed by the CDC,[12] modeled
+X, or Y in ICD-10 data.[13] Produces a table corresponding to the
+“Framework for Presenting Injury Data” developed by the CDC,[14] modeled
 after the “Barell Matrix” previously developed for ICD-9. The TQP PUF
 and NIS survival for subjects with an ICD-10-CM diagnosis in each cell
 of the framework is also calculated, and the minimum cell survival for a
-given subject is provided as a rough estimate of severity.[13]</p></li>
+given subject is provided as a rough estimate of severity.[15]</p></li>
 </ul>
 <p>Programs icd10aisA, icd10aisB, icd10aisC, icd10aisD, and icd10aisE,
 and a modification of the data table published by Gedeborg and
-colleagues[8] can be found at <a href="https://github.com/clark-david/icdpicr2/tree/main/prelim/" class="uri">https://github.com/clark-david/icdpicr2/tree/main/prelim/</a>.</p>
+colleagues[10] can be found at <a href="https://github.com/clark-david/icdpicr2/tree/main/prelim/" class="uri">https://github.com/clark-david/icdpicr2/tree/main/prelim/</a>.</p>
 </div>
 <div id="the-following-tables-are-available-in-r-after-downloading-icdpicr2" class="section level3">
 <h3><strong>The following tables are available in R after downloading
@@ -532,16 +434,16 @@ contained either in TQP or NIS.</p></li>
 replacing i10_ecode. It uses the results of icd10aisE to assign a
 mechanism category for any ICD-10 external cause of injury code
 (starting with letters T, V, W, X, or Y), using a table proposed by the
-CDC.[11]</p></li>
+CDC.[13]</p></li>
 <li><p><strong>i10_map_iciss:</strong> This table is new in Version 2.
 It uses the results of icd10aisD to assign ICD-10 injury codes to a
 4-digit ICD-10 code (or a truncated version of longer modified ICD-10
 codes) and its associated “Diagnosis-specific Survival Probability”
-(DSP) based on data published by Gedeborg and colleagues.[8] Assigns
+(DSP) based on data published by Gedeborg and colleagues.[10] Assigns
 similar DSPs based on data from TQP and NIS.</p></li>
 <li><p><strong>i10_map_frame:</strong> This table is new in Version 2.
 It uses the results of icd10aisE to assign ICD-10 injury codes to a cell
-in the CDC “Framework for Presenting Injury Data”.[12] It also includes
+in the CDC “Framework for Presenting Injury Data”.[14] It also includes
 an estimated survival for patients with a diagnosis in that cell, based
 upon the results of icd10aisE.</p></li>
 <li><p><strong>testdata:</strong> Sample data that can be used to
@@ -564,7 +466,7 @@ TQP, and NIS. Further details about the available options are provided
 in the help file for this function.</p></li>
 <li><p><strong>Program “framework”</strong> Reads in user data in the
 specified format. Assigns each ICD-10 injury code to a cell in the CDC
-“Framework for Presenting Injury Data”.[12] Returns a predicted survival
+“Framework for Presenting Injury Data”.[14] Returns a predicted survival
 for each case. Further details about the available options are provided
 in the help file for this function.</p></li>
 </ul>
@@ -581,61 +483,72 @@ databases)</p></li>
 <li><p>Update documentation</p></li>
 </ul>
 </div>
+<div id="updates-from-2.1.0---2.1.2" class="section level3">
+<h3><strong>Updates from 2.1.0 - 2.1.2</strong></h3>
+<ul>
+<li><p>No changes in functionality</p></li>
+<li><p>Update documentation</p></li>
+</ul>
+</div>
 <div id="references" class="section level3">
 <h3><strong>References</strong></h3>
 <ol style="list-style-type: decimal">
+<li><p>Clark DE. Improved programs for injury categorization using
+ICD-10. <em>Clin Epidemiol</em> 2026; 18:628506.</p></li>
 <li><p>Clark DE, Black AW, Skavdahl DH, Hallagan LD. Open-access
-programs for injury categorization using ICD-9 or ICD-10. Inj Epidemiol
-2018; 5:11.</p></li>
+programs for injury categorization using ICD-9 or ICD-10. <em>Inj
+Epidemiol</em> 2018; 5:11.</p></li>
+<li><p>Clark DE, Black AW. ICDPIC-R Version 1.0.0. <em>Injury</em> 2021;
+52:3545.</p></li>
 <li><p>Sebastião YV, Metzger GA, Chisolm DJ, Xiang H, Cooper JN. Impact
 of ICD-9-CM to ICD-10-CM coding transition on trauma hospitalization
-trends among young adults in 12 states. Inj Epidemiol 2021; 8:4</p></li>
+trends among young adults in 12 states. <em>Inj Epidemiol</em> 2021;
+8:4</p></li>
 <li><p>Airaksinen NK, Heinänen MT, Handolin LE. The reliability of the
 ICD-AIS map in identifying serious road traffic injuries from the
-Helsinki Trauma Registry. Injury 2019; 50:1545-1551.</p></li>
+Helsinki Trauma Registry. <em>Injury</em> 2019; 50:1545-1551.</p></li>
 <li><p>Wan V, Reddy S, Thomas A, Issa N, Posluszny J, Schwulst S,
 Shapiro M, Alam H, Bilimoria KY, Stey AM. How does Injury Severity Score
 derived from ICDPIC utilizing ICD-10-CM codes perform compared to Injury
-Severity Score derived from TQIP? J Trauma Acute Care Surg 2023;
-94:141-147.</p></li>
+Severity Score derived from TQIP? <em>J Trauma Acute Care Surg</em>
+2023; 94:141-147.</p></li>
 <li><p>Niemann M, Märdian S, Niemann P, Tetteh L, Tsitsilonis S, Braun
 KF, Stöckle U, Graef F. Transforming the German ICD-10 (ICD-10-GM) into
 Injury Severity Score (ISS) – Introducing a new method for automated
-re-coding. Plos One 2021: 16(9):e0257183.</p></li>
+re-coding. <em>Plos One</em> 2021: 16(9):e0257183.</p></li>
 <li><p>Eskesen TO, Sillesen M, Rasmussen LS, Steinmetz J. Agreement
-between standard and ICD-10-based Injury Severity Scores. Clin Epidemiol
-2022; 14:201-210.</p></li>
+between standard and ICD-10-based Injury Severity Scores. <em>Clin
+Epidemiol</em> 2022; 14:201-210.</p></li>
 <li><p>Committee on Medical Aspects of Automotive Safety, AMA. Rating
-the severity of tissue damage. I. The abbreviated scale. JAMA 1971;
-215:277-280.</p></li>
+the severity of tissue damage. I. The abbreviated scale. <em>JAMA</em>
+1971; 215:277-280.</p></li>
 <li><p>Gedeborg R, Warner M, Chen L-H, Gulliver P, Cryer C, Robitaille
 Y, Bauer R, Ubeda C, Lauritsen J, Harrison J, Henley G, Langley J.
 Internationally comparable diagnosis-specific survival probabilities for
-calculation of the ICD-10-based Injury Severity Score. J Trauma Acute
-Care Surg 2014; 76:358-365.</p></li>
+calculation of the ICD-10-based Injury Severity Score. <em>J Trauma
+Acute Care Surg</em> 2014; 76:358-365.</p></li>
 <li><p>Baker SP, O’Neill B, Haddon W Jr., Long WB. The injury severity
 score: A method for describing patients with multiple injuries and
-evaluating emergency care. J Trauma 1974; 14:187-196.</p></li>
+evaluating emergency care. <em>J Trauma</em> 1974; 14:187-196.</p></li>
 <li><p>Osler T, Baker SP, Long WA. Modification of the injury severity
-score that both improves accuracy and simplifies scoring. J Trauma 1997;
-43:922-925.</p></li>
+score that both improves accuracy and simplifies scoring. <em>J
+Trauma</em> 1997; 43:922-925.</p></li>
 <li><p>Hedegaard H, Johnson RL, Garnett MF, Thomas KE. The International
 Classification of Diseases, 10th Revision, Clinical Modification
 (ICD-10-CM) external cause of injury framework for categorizing
-mechanism and intent of injury. Nat Health Stat Reports 2019;
+mechanism and intent of injury. <em>Nat Health Stat Reports</em> 2019;
 136:1-21.</p></li>
 <li><p>Hedegaard H, Johnson RL, Garnett MF, Thomas KE. The 2020
 International Classification of Diseases, 10th Revision, Clinical
 Modification injury diagnosis framework for categorizing injuries by
-body region and nature of injury. Nat Health Stat Reports 2020;
+body region and nature of injury. <em>Nat Health Stat Reports</em> 2020;
 150:1-26.</p></li>
 <li><p>Clark DE, Ahmad S. Estimating injury severity using the Barell
-matrix. Inj Prev 2006; 12:111-116.</p></li>
+matrix. <em>Inj Prev</em> 2006; 12:111-116.</p></li>
 <li><p>Berecki-Gisolf J, Rezaei-Darzi E, Fernando DT, D’Elia A.
 International Classification of Disease based Injury Severity Score
 (ICISS): a comparison of methodologies applied to linked data from New
-South Wales, Australia. Inj Prev 2024; 0:1-8 ePub ahead of
-print.</p></li>
+South Wales, Australia. <em>Inj Prev</em> 2025; 31:500-507.</p></li>
 </ol>
 </div>
 <div id="contents" class="section level3">
@@ -646,7 +559,7 @@ print.</p></li>
 <li><p>Programs used in calculating severity scores</p></li>
 <li><p>Tables available in “icdpicr2”</p></li>
 <li><p>Functions available in “icdpicr2”</p></li>
-<li><p>Updates from Version 2.0 to Version 2.1</p></li>
+<li><p>Updates from Version 2.0 to Version 2.1.2</p></li>
 <li><p>References</p></li>
 </ul>
 </div>
